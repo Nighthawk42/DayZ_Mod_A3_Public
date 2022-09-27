@@ -1,0 +1,41 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: dayz_equip\textures\toolbox.rvmat
+//Produced from mikero's Dos Tools Dll version 6.94
+//https://armaservices.maverick-applications.com/Products/MikerosDosTools/default
+//'now' is Mon Jan 13 22:55:22 2020 : 'file' last modified on Mon Jul 09 16:16:48 2012
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+ambient[] = {1.0,1.0,1.0,1.0};
+diffuse[] = {1.0,1.0,1.0,1.0};
+forcedDiffuse[] = {0.0,0.0,0.0,1.0};
+emmisive[] = {0.0,0.0,0.0,1.0};
+specular[] = {0.99498,0.99498,0.99498,1.0};
+specularPower = 100.799995;
+PixelShaderID = "NormalMapSpecularMap";
+VertexShaderID = "NormalMap";
+class Stage1
+{
+	texture = "dayz_equip\textures\toolbox_NOHQ.paa";
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1.0,0.0,0.0};
+		up[] = {0.0,1.0,0.0};
+		dir[] = {0.0,0.0,0.0};
+		pos[] = {0,0,0};
+	};
+};
+class Stage2
+{
+	texture = "dayz_equip\textures\toolbox_SMDI.paa";
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1.0,0.0,0.0};
+		up[] = {0.0,1.0,0.0};
+		dir[] = {0.0,0.0,0.0};
+		pos[] = {0,0,0};
+	};
+};

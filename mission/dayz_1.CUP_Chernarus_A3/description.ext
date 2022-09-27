@@ -1,0 +1,113 @@
+author = "BI. Updated to A3 By Rawr-Tech & Cytech Dev Team";
+onLoadName = "Cytech";
+onLoadMission = "DayZ Chernarus";
+joinUnassigned = 1;
+skipLobby = 1;
+respawn = BASE;
+respawndelay = 5;
+disabledAI = true;
+//--- Control Chat - Format: {channelID<number>, disableChat<bool>, disableVoice<bool>}
+disableChannels[] = {
+	{0, true, true},	//--- Global Chat
+	{1, false, true},	//--- Side Chat
+	{2, true, true},	//--- Command Chat
+	{3, true, true},	//--- Group Chat
+	{4, false, false},	//--- Vehicle Chat
+	{5, false, false}, 	//--- Direct Chat
+	{6, true, true}		//--- System Chat
+};
+disableRandomization[] = {"All"};
+enableDebugConsole = 1;
+respawnDialog = 0;
+
+#include "infiSTAR_AdminMenu.hpp"
+
+OnLoadIntro = "Welcome to Chernarus";
+OnLoadIntroTime = False;
+OnLoadMissionTime = False;
+enableItemsDropping = 0;
+onPauseScript = "player_onPause.sqf";
+loadScreen = "\dayz_code\gui\dayz_logo_ca.paa";
+
+class Header
+{
+ gameType = Survive;            //DM, Team, Coop, ...
+ minPlayers = 1;             //min # of players the mission supports
+ maxPlayers = 100;            //Max # of players the mission supports
+};
+
+aiKills = 1;
+diagRadio = 1;
+diagHit = 1;
+
+class Params
+{
+	class HeadlessClient
+	{
+		title = "Headless Client";
+		values[] = {0,1};
+		texts[] = {"OFF","ON"};
+		default = 0 ;
+	};
+};
+
+
+class RscText
+{
+	type = 0;
+	idc = -1;
+	x = 0;
+	y = 0;
+	h = 0.037;
+	w = 0.3;
+	style = 0x100; 
+	font = Zeppelin32;
+	SizeEx = 0.03921;
+	colorText[] = {1,1,1,1};
+	colorBackground[] = {0, 0, 0, 0};
+	linespacing = 1;
+};
+class RscPicture
+{
+	access=0;
+	type=0;
+	idc=-1;
+	style=48;
+	colorBackground[]={0,0,0,0};
+	colorText[]={1,1,1,1};
+	font="TahomaB";
+	sizeEx=0;
+	lineSpacing=0;
+	text="";
+};
+class RscLoadingText : RscText
+{
+	style = 2;
+	x = 0.323532;
+	y = 0.666672;
+	w = 0.352944;
+	h = 0.039216;
+	sizeEx = 0.03921;
+	colorText[] = {0.543,0.5742,0.4102,1.0};
+};
+class RscProgress
+{
+	x = 0.344;
+	y = 0.619;
+	w = 0.313726;
+	h = 0.0261438;
+	texture = "\ca\ui\data\loadscreen_progressbar_ca.paa";
+	colorFrame[] = {0,0,0,0};
+	colorBar[] = {1,1,1,1};
+};
+class RscProgressNotFreeze
+{
+	idc = -1;
+	type = 45;
+	style = 0;
+	x = 0.022059;
+	y = 0.911772;
+	w = 0.029412;
+	h = 0.039216;
+	texture = "#(argb,8,8,3)color(0,0,0,0)";
+};

@@ -1,0 +1,100 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, Events">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init",0,250,-65.004578,-391.651611,24.995417,-341.651672,0.000000,"init"};
+item1[] = {"true",8,218,-62.976639,-315.185364,27.023363,-265.185364,0.000000,"true"};
+item2[] = {"Share__Work_load",2,250,-64.183350,-224.681931,25.816656,-174.681931,0.000000,"Share " \n "Work-load"};
+item3[] = {"true",8,218,-54.709698,75.189262,35.290302,125.189262,0.000000,"true"};
+item4[] = {"Time_Check",4,218,-219.425827,-133.310532,-129.425964,-83.310455,0.000000,"Time Check"};
+item5[] = {"Spawn_Event",2,250,-220.186951,-29.248400,-130.187195,20.751413,0.000000,"Spawn Event"};
+item6[] = {"",7,210,-312.538239,95.295059,-304.538239,103.295059,0.000000,""};
+item7[] = {"",7,210,-311.750000,-203.033707,-303.750000,-195.033707,0.000000,""};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,4};
+link3[] = {3,6};
+link4[] = {4,5};
+link5[] = {5,3};
+link6[] = {6,7};
+link7[] = {7,2};
+globals[] = {0.000000,0,0,0,0,640,480,1,46,6316128,1,-347.116486,328.878815,337.592865,-432.313141,703,615,1};
+window[] = {0,-1,-1,-1,-1,785,25,1668,25,1,721};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "Events";
+  class States
+  {
+    /*%FSM<STATE "init">*/
+    class init
+    {
+      name = "init";
+      init = /*%FSM<STATEINIT""">*/"private[""_eventstime"",""_events""];" \n
+       "_eventstime = time;" \n
+       "_events = [RDT_fnc_spawnairdrop];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="Share__Work_load";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Share__Work_load">*/
+    class Share__Work_load
+    {
+      name = "Share__Work_load";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Time_Check">*/
+        class Time_Check
+        {
+          priority = 0.000000;
+          to="Spawn_Event";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((time - _eventstime) > (60 * 60))"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Spawn_Event">*/
+    class Spawn_Event
+    {
+      name = "Spawn_Event";
+      init = /*%FSM<STATEINIT""">*/"0 spawn (selectrandom _events);" \n
+       "_eventstime = time;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="Share__Work_load";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="init";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/
